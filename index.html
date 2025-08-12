@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Desmanche Japonês | Peças Automotivas na Vila Mariana</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 70px;
+  }
+  header {
+    background: #004a99;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  header .logo {
+    height: 55px;
+    width: 55px;
+  }
+  header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+  nav {
+    background: #003366;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  nav li {
+    margin: 0 18px;
+  }
+  nav a {
+    display: block;
+    padding: 12px 0;
+    font-weight: 600;
+    color: #b3d1ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #fff;
+  }
+  .banner-fixo img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 15px;
+  }
+  section {
+    background: white;
+    padding: 30px 25px;
+    margin-bottom: 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.1);
+  }
+  section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #004a99;
+    font-size: 2rem;
+  }
+  .imagem-abaixo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .servicos-list {
+    max-width: 850px;
+    margin: 0 auto;
+    list-style: disc;
+    padding-left: 20px;
+  }
+  .marcas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+  }
+  .marca-item {
+    flex: 0 1 130px;
+    text-align: center;
+    color: #004a99;
+  }
+  .marca-item img {
+    max-width: 100px;
+    margin-bottom: 8px;
+  }
+  form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  form input, form textarea {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 1rem;
+  }
+  form button {
+    background: #004a99;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    cursor: pointer;
+  }
+  form button:hover {
+    background: #003366;
+  }
+  footer {
+    background: #003366;
+    color: #b3c7e6;
+    text-align: center;
+    padding: 20px;
+  }
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 9999;
+  }
+  .whatsapp-btn img {
+    width: 32px;
+    height: 32px;
+  }
+  @media (max-width: 900px) {
+    .marca-item { flex: 0 1 45%; }
+  }
+  @media (max-width: 480px) {
+    nav ul { flex-direction: column; gap: 10px; padding: 10px 0; }
+    header { flex-direction: column; text-align: center; }
+    header .logo { margin: auto; }
+    .marca-item { flex: 0 1 80%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="japalogo.png" alt="Logo Desmanche Japonês" />
+  <h1>Desmanche Japonês</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#marcas">Marcas</a></li>
+    <li><a href="#politicas">Políticas</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<section class="banner-fixo">
+  <img src="frentecomrua.png" alt="Fachada do Desmanche Japonês com vista para a rua" />
+</section>
+
+<main>
+  <section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Somos referência em peças automotivas na Vila Mariana...</p>
+  </section>
+
+  <section class="imagem-abaixo">
+    <img src="campos.png" alt="Imagem do pátio do desmanche">
+  </section>
+
+  <section id="servicos">
+    <h2>Serviços</h2>
+    <p>Trabalhamos com todo tipo de carro...</p>
+    <ul class="servicos-list">
+      <li>Portas e capôs</li>
+      <li>Sistemas eletrônicos</li>
+      <li>Pneus e rodas</li>
+      <li>Motor e transmissão</li>
+      <li>Suspensão e freios</li>
+      <li>Peças internas e externas</li>
+      <li>Manutenção geral</li>
+    </ul>
+  </section>
+
+  <section class="imagem-abaixo">
+    <img src="arranque.png" alt="Peça de arranque automotivo">
+  </section>
+
+  <section id="marcas">
+    <h2>Marcas que Trabalhamos</h2>
+    <div class="marcas-container">
+      <div class="marca-item"><img src="wolquisvagen.png" alt="Volkswagen"><span>Volkswagen</span></div>
+      <div class="marca-item"><img src="fiat.png" alt="Fiat"><span>Fiat</span></div>
+      <div class="marca-item"><img src="ford.svg" alt="Ford"><span>Ford</span></div>
+      <div class="marca-item"><img src="Chevrolet.png" alt="Chevrolet"><span>Chevrolet</span></div>
+      <div class="marca-item"><img src="honda.png" alt="Honda"><span>Honda</span></div>
+      <div class="marca-item"><img src="toyota.png" alt="Toyota"><span>Toyota</span></div>
+    </div>
+  </section>
+
+  <section class="imagem-abaixo">
+    <img src="portas.png" alt="Portas de automóveis disponíveis">
+  </section>
+
+  <section id="politicas">
+    <h2>Política de Privacidade</h2>
+    <p>Valorizamos sua privacidade e garantimos que os dados...</p>
+    <h3>Política de Devolução</h3>
+    <p>Oferecemos garantia para nossas peças...</p>
+  </section>
+
+  <section id="contato" style="padding: 40px; background: #f9f9f9; text-align: center;">
+    <h2 style="font-size: 28px; margin-bottom: 20px;">Entre em Contato</h2>
+    <p style="margin-bottom: 20px;">Fale diretamente conosco pelo WhatsApp:</p>
+
+    <a href="https://wa.me/5511950297862" target="_blank" style="display: inline-flex; align-items: center; background: #25D366; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: bold;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 10px;">
+      Falar no WhatsApp
+    </a>
+
+    <hr style="margin: 40px 0;">
+
+    <form action="https://formsubmit.co/alunospilotos@gmail.com" method="POST" style="max-width: 500px; margin: auto; text-align: left; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <label for="nome" style="display: block; margin-bottom: 5px; font-weight: bold;">Nome:</label>
+      <input type="text" id="nome" name="nome" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+
+      <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">E-mail:</label>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+
+      <label for="mensagem" style="display: block; margin-bottom: 5px; font-weight: bold;">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+
+      <button type="submit" style="width: 100%; background: #007BFF; color: white; padding: 12px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+        Enviar Mensagem
+      </button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2019 Desmanche Japonês - Av. Ricardo Jaffer, 2433 - Vila Mariana | WhatsApp: (11) 95029-7862
+</footer>
+
+<a href="https://wa.me/5511950297862" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+</body>
+</html>
