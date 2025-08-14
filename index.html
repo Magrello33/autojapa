@@ -1,333 +1,283 @@
-  <!DOCTYPE html>
+        
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JP Desmanche — Auto Peças com Garantia</title>
-  <meta name="description" content="JP Desmanche: peças usadas testadas, com garantia e nota fiscal. Vila Mariana, São Paulo/SP. Envios para todo o Brasil." />
-  <meta property="og:title" content="JP Desmanche — Auto Peças com Garantia" />
-  <meta property="og:description" content="Peças usadas testadas, com garantia e nota fiscal. Vila Mariana, São Paulo/SP." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#111827" />
-  <style>
-    :root{
-      --bg:#f6f6f6; --text:#111827; --muted:#6b7280; --card:#ffffff; --ring:#e5e7eb;
-      --brand:#059669; --brand-700:#047857; --ink:#0b0f19;
-      --radius:20px; --shadow:0 10px 25px rgba(0,0,0,.08);
-    }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif}
-    .container{max-width:1150px;margin:0 auto;padding:0 16px}
-    .btn{display:inline-block;background:var(--brand);color:#fff;padding:12px 18px;border-radius:16px;text-decoration:none;font-weight:600}
-    .btn:hover{background:var(--brand-700)}
-    .btn-ghost{display:inline-block;border:1px solid var(--ring);padding:10px 16px;border-radius:14px;text-decoration:none;color:var(--text)}
-    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.8);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--ring)}
-    header .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    nav a{margin-left:18px;color:var(--text);text-decoration:none;font-size:14px}
-    nav a:hover{color:#374151}
-
-    /* Banner */
-    .hero{position:relative;overflow:hidden}
-    .hero img{width:100%;height:420px;object-fit:cover;display:block;filter:saturate(1.05)}
-    .hero .veil{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.25) 50%, rgba(0,0,0,.6))}
-    .hero .content{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;padding:24px}
-    .hero h1{font-size:clamp(28px,4.5vw,50px);margin:0 0 8px 0}
-    .hero p{max-width:850px;margin:0 auto 16px auto;color:#e5e7eb}
-
-    /* Sections */
-    section{padding:56px 0}
-    h2{font-size:28px;margin:0 0 12px 0}
-    .muted{color:var(--muted)}
-
-    /* Cards */
-    .grid{display:grid;gap:18px}
-    @media (min-width:640px){.grid-2{grid-template-columns:repeat(2,1fr)}}
-    @media (min-width:940px){.grid-3{grid-template-columns:repeat(3,1fr)}}
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .card .img{aspect-ratio:4/3;background:#ddd}
-    .card .img img{width:100%;height:100%;object-fit:cover;display:block}
-    .card .body{padding:14px 14px 16px}
-    .price{font-weight:800}
-
-    /* Search bar */
-    .search{display:flex;gap:10px;align-items:center}
-    .search input{flex:1;min-width:220px;padding:12px 14px;border-radius:14px;border:1px solid var(--ring)}
-
-    /* Footer */
-    footer{background:#0b0f19;color:#e5e7eb}
-    footer a{color:#c7d2fe}
-
-    /* Modal */
-    dialog{border:none;border-radius:18px;max-width:850px;width:92%;padding:0;box-shadow:var(--shadow)}
-    dialog::backdrop{background:rgba(0,0,0,.6)}
-    .modal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--ring)}
-    .modal-body{padding:18px}
-    .close{background:transparent;border:none;font-size:22px;cursor:pointer}
-
-    /* Badge strip */
-    .badges{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px}
-    .badge{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--ring);border-radius:16px;padding:14px}
-  </style>
-  <script>
-    // === Dados fixos da loja ===
-    const loja = {
-      nome: "JP Desmanche",
-      whatsapp: "5511950297862",
-      endereco: "Rua Avenida Ricardo Jaffer, 2433 - Vila Mariana, São Paulo/SP",
-      email: "japonesjaffer@gmail.com",
-      horario: "Seg a Sex 8h-18h • Sáb 8h-12h"
-    };
-
-    // === Catálogo com fotos reais genéricas (Unsplash) ===
-    const catalogo = [
-      {id:1,  nome:"Farol Direito", carro:"Volkswagen Gol", ano:"2017-2019", preco:350,  estado:"A+ (sem arranhões)",  imagem:"https://images.unsplash.com/photo-1616401785111-e0f4ab2740d9?q=80&w=1600&auto=format&fit=crop"},
-      {id:2,  nome:"Retrovisor Esquerdo", carro:"Chevrolet Onix", ano:"2018-2020", preco:220,  estado:"A (pintura original)", imagem:"https://images.unsplash.com/photo-1607860118440-f99da7a57a4b?q=80&w=1600&auto=format&fit=crop"},
-      {id:3,  nome:"Para-choque Traseiro", carro:"Fiat Argo", ano:"2017-2020", preco:500,  estado:"B (pequenos riscos)", imagem:"https://images.unsplash.com/photo-1585007600165-d2ce90d8b5f3?q=80&w=1600&auto=format&fit=crop"},
-      {id:4,  nome:"Motor 1.6 Completo", carro:"Hyundai HB20", ano:"2015-2018", preco:5800, estado:"Revisado e testado", imagem:"https://images.unsplash.com/photo-1607860118131-82d49f683758?q=80&w=1600&auto=format&fit=crop"},
-      {id:5,  nome:"Câmbio Manual", carro:"Ford Ka", ano:"2016-2019", preco:2400, estado:"Ótimo estado", imagem:"https://images.unsplash.com/photo-1607860118445-c5ff43b97c2b?q=80&w=1600&auto=format&fit=crop"},
-      {id:6,  nome:"Porta Dianteira Direita", carro:"Honda Civic", ano:"2012-2015", preco:900,  estado:"A (pintura original)", imagem:"https://images.unsplash.com/photo-1581717600321-0f934f671b03?q=80&w=1600&auto=format&fit=crop"},
-      {id:7,  nome:"Capô", carro:"Toyota Corolla", ano:"2015-2017", preco:1100, estado:"A (com manta térmica)", imagem:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop"},
-      {id:8,  nome:"Lanterna Traseira Direita", carro:"Fiat Palio", ano:"2012-2016", preco:180,  estado:"A (sem trinca)", imagem:"https://images.unsplash.com/photo-1571601035754-5c927f2d7ed0?q=80&w=1600&auto=format&fit=crop"},
-      {id:9,  nome:"Amortecedor Dianteiro (par)", carro:"Renault Sandero", ano:"2014-2018", preco:420, estado:"Revisado", imagem:"https://images.unsplash.com/photo-1607860008659-29f1913f332f?q=80&w=1600&auto=format&fit=crop"},
-      {id:10, nome:"Caixa de Direção", carro:"Volkswagen Fox", ano:"2010-2014", preco:650, estado:"Sem folgas", imagem:"https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1600&auto=format&fit=crop"},
-      {id:11, nome:"Painel de Instrumentos", carro:"Chevrolet Prisma", ano:"2013-2016", preco:350, estado:"Iluminação OK", imagem:"https://images.unsplash.com/photo-1549921296-3b4a6b46b5a0?q=80&w=1600&auto=format&fit=crop"},
-      {id:12, nome:"Módulo de Injeção", carro:"Volkswagen Polo", ano:"2018-2020", preco:980, estado:"Testado em bancada", imagem:"https://images.unsplash.com/photo-1511914265872-c406725d79a5?q=80&w=1600&auto=format&fit=crop"}
-    ];
-
-    const moedaBR = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-
-    function montarCatalogo(lista){
-      const grid = document.querySelector('#gridCatalogo');
-      grid.innerHTML = '';
-      lista.forEach(p => {
-        const card = document.createElement('article');
-        card.className = 'card';
-        card.innerHTML = `
-          <div class="img"><img loading="lazy" src="${p.imagem}" alt="${p.nome}"></div>
-          <div class="body">
-            <h3 style="margin:0 0 4px 0;font-weight:700">${p.nome}</h3>
-            <p class="muted" style="margin:0 0 6px 0">${p.carro} • ${p.ano}</p>
-            <p class="muted" style="margin:0 8px 10px 0;font-size:14px">Estado: ${p.estado}</p>
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <span class="price">${moedaBR(p.preco)}</span>
-              <a class="btn" href="https://wa.me/${loja.whatsapp}?text=${encodeURIComponent('Tenho interesse na peça: ' + p.nome + ' (' + p.carro + ' ' + p.ano + ')')}">Pedir no Whats</a>
-            </div>
-          </div>`;
-        grid.appendChild(card);
-      });
-    }
-
-    function buscar(texto){
-      const q = texto.trim().toLowerCase();
-      if(!q) return montarCatalogo(catalogo);
-      const filtrado = catalogo.filter(p =>
-        p.nome.toLowerCase().includes(q) || p.carro.toLowerCase().includes(q) || p.ano.toLowerCase().includes(q)
-      );
-      montarCatalogo(filtrado);
-    }
-
-    function enviarForm(e){
-      e.preventDefault();
-      const data = new FormData(e.target);
-      const nome = data.get('nome') || '';
-      const email = data.get('email') || '';
-      const mensagem = data.get('mensagem') || '';
-      const texto = `Olá!%0A%0ANome: ${encodeURIComponent(nome)}%0AE-mail: ${encodeURIComponent(email)}%0AMensagem: ${encodeURIComponent(mensagem)}`;
-      window.open(`https://wa.me/${loja.whatsapp}?text=${texto}`, '_blank');
-      e.target.reset();
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Preencher dados fixos
-      document.querySelectorAll('[data-nome]').forEach(el=>el.textContent = loja.nome);
-      document.querySelector('[data-endereco]').textContent = loja.endereco;
-      document.querySelector('[data-email]').textContent = loja.email;
-      document.querySelector('[data-horario]').textContent = loja.horario;
-      document.querySelector('[data-whats]').setAttribute('href', 'https://wa.me/' + loja.whatsapp);
-
-      montarCatalogo(catalogo);
-
-      const input = document.querySelector('#busca');
-      input.addEventListener('input', e => buscar(e.target.value));
-      document.querySelector('#btnLimpar').addEventListener('click', () => {input.value='';buscar('');});
-      document.querySelector('#formContato').addEventListener('submit', enviarForm);
-
-      // Política de privacidade modal
-      const dlg = document.querySelector('#dlgPriv');
-      document.querySelectorAll('[data-open-priv]').forEach(b=>b.addEventListener('click', ()=>dlg.showModal()));
-      document.querySelector('#closePriv').addEventListener('click', ()=>dlg.close());
-    });
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"AutoPartsStore",
-    "name":"JP Desmanche",
-    "address":{"@type":"PostalAddress","streetAddress":"Rua Avenida Ricardo Jaffer, 2433","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"},
-    "email":"mailto:japonesjaffer@gmail.com",
-    "telephone":"+55-11-95029-7862",
-    "openingHours":"Mo-Fr 08:00-18:00, Sa 08:00-12:00"
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Desmanche Japonês | Peças Automotivas na Vila Mariana</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  </script>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 70px;
+  }
+  header {
+    background: #004a99;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  header .logo {
+    height: 55px;
+    width: 55px;
+  }
+  header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+  nav {
+    background: #003366;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  nav li {
+    margin: 0 18px;
+  }
+  nav a {
+    display: block;
+    padding: 12px 0;
+    font-weight: 600;
+    color: #b3d1ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #fff;
+  }
+  .banner-fixo img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 15px;
+  }
+  section {
+    background: white;
+    padding: 30px 25px;
+    margin-bottom: 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.1);
+  }
+  section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #004a99;
+    font-size: 2rem;
+  }
+  .imagem-abaixo img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .servicos-list {
+    max-width: 850px;
+    margin: 0 auto;
+    list-style: disc;
+    padding-left: 20px;
+  }
+  .marcas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+  }
+  .marca-item {
+    flex: 0 1 130px;
+    text-align: center;
+    color: #004a99;
+  }
+  .marca-item img {
+    max-width: 100px;
+    margin-bottom: 8px;
+  }
+  form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  form input, form textarea {
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 1rem;
+  }
+  form button {
+    background: #004a99;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    cursor: pointer;
+  }
+  form button:hover {
+    background: #003366;
+  }
+  footer {
+    background: #003366;
+    color: #b3c7e6;
+    text-align: center;
+    padding: 20px;
+  }
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 9999;
+  }
+  .whatsapp-btn img {
+    width: 32px;
+    height: 32px;
+  }
+  @media (max-width: 900px) {
+    .marca-item { flex: 0 1 45%; }
+  }
+  @media (max-width: 480px) {
+    nav ul { flex-direction: column; gap: 10px; padding: 10px 0; }
+    header { flex-direction: column; text-align: center; }
+    header .logo { margin: auto; }
+    .marca-item { flex: 0 1 80%; }
+  }
+</style>
 </head>
 <body>
-  <!-- ===== NAVBAR ===== -->
-  <header>
-    <div class="container bar">
-      <div style="display:flex;align-items:center;gap:10px">
-       <div style="width:38px;height:38px;border-radius:12px;background:#111827;color:#fff;display:grid;place-items:center;font-weight:800">JP</div>
-       <strong data-nome>JP Desmanche</strong>
-      </div>
-      <nav>
-        <a href="#sobre">Sobre nós</a>
-        <a href="#catalogo">Catálogo</a>
-        <a href="#contato">Contato</a>
-        <a href="javascript:void(0)" data-open-priv>Política de Privacidade</a>
-        <a class="btn" data-whats target="_blank" rel="noopener">WhatsApp</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- ===== BANNER ===== -->
-  <section class="hero">
-    <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?q=80&w=1920&auto=format&fit=crop" alt="Pátio de desmanche"/>
-    <div class="veil"></div>
-    <div class="content container">
-      <div>
-        <h1 data-nome>JP Desmanche</h1>
-        <p>Peças usadas testadas, com procedência legal, garantia e nota fiscal. Enviamos para todo o Brasil.</p>
-        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px">
-          <a class="btn" data-whats target="_blank" rel="noopener">Falar no WhatsApp</a>
-          <a class="btn-ghost" href="#catalogo">Ver Catálogo</a>
-        </div>
-        <div class="badges">
-          <div class="badge"><span>✅</span><div><strong>Peças testadas</strong><br/><span class="muted">Avaliação técnica antes da venda</span></div></div>
-          <div class="badge"><span>🧾</span><div><strong>Nota fiscal & Garantia</strong><br/><span class="muted">Tudo documentado por escrito</span></div></div>
-          <div class="badge"><span>🚚</span><div><strong>Envio rápido</strong><br/><span class="muted">Frete com seguro e rastreio</span></div></div>
-          <div class="badge"><span>📞</span><div><strong>Atendimento especializado</strong><br/><span class="muted">Ajuda para achar a peça certa</span></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
+<header>
+  <img class="logo" src="japalogo.png" alt="Logo Desmanche Japonês" />
+  <h1>Desmanche Japonês</h1>
+</header>
 
-  <!-- ===== SOBRE NÓS ===== -->
+<nav>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#marcas">Marcas</a></li>
+    <li><a href="#politicas">Políticas</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<section class="banner-fixo">
+  <img src="frentecomrua.png" alt="Fachada do Desmanche Japonês com vista para a rua" />
+</section>
+
+<main>
   <section id="sobre">
-    <div class="container">
-      <h2>Sobre nós</h2>
-      <p class="muted">Somos um desmanche legalizado em Vila Mariana (SP) focado em oferecer <strong>autopeças usadas</strong> com procedência, qualidade e preço justo. Todas as peças são <strong>inspecionadas</strong> e saem com <strong>nota fiscal</strong> e <strong>garantia por escrito</strong>.</p>
-      <div class="grid grid-3" style="margin-top:18px">
-        <div class="card"><div class="img"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1600&auto=format&fit=crop" alt="Avaliação técnica"/></div><div class="body"><strong>Avaliação técnica</strong><p class="muted">Triagem completa antes de catalogar.</p></div></div>
-        <div class="card"><div class="img"><img src="https://images.unsplash.com/photo-1542296901-42c2fc33d7e5?q=80&w=1600&auto=format&fit=crop" alt="Estoque organizado"/></div><div class="body"><strong>Estoque organizado</strong><p class="muted">Rastreabilidade e identificação por modelo.</p></div></div>
-        <div class="card"><div class="img"><img src="https://images.unsplash.com/photo-1511914265872-c406725d79a5?q=80&w=1600&auto=format&fit=crop" alt="Envio rápido"/></div><div class="body"><strong>Envio rápido</strong><p class="muted">Embalagem segura e despacho ágil.</p></div></div>
-      </div>
+    <h2>Sobre Nós</h2>
+    <p>Somos referência em peças automotivas na Vila Mariana...</p>
+  </section>
+
+  <section class="imagem-abaixo">
+    <img src="campos.png" alt="Imagem do pátio do desmanche">
+  </section>
+
+  <section id="servicos">
+    <h2>Serviços</h2>
+    <p>Trabalhamos com todo tipo de carro...</p>
+    <ul class="servicos-list">
+      <li>Portas e capôs</li>
+      <li>Sistemas eletrônicos</li>
+      <li>Pneus e rodas</li>
+      <li>Motor e transmissão</li>
+      <li>Suspensão e freios</li>
+      <li>Peças internas e externas</li>
+      <li>Manutenção geral</li>
+    </ul>
+  </section>
+
+  <section class="imagem-abaixo">
+    <img src="arranque.png" alt="Peça de arranque automotivo">
+  </section>
+
+  <section id="marcas">
+    <h2>Marcas que Trabalhamos</h2>
+    <div class="marcas-container">
+      <div class="marca-item"><img src="wolquisvagen.png" alt="Volkswagen"><span>Volkswagen</span></div>
+      <div class="marca-item"><img src="fiat.png" alt="Fiat"><span>Fiat</span></div>
+      <div class="marca-item"><img src="ford.svg" alt="Ford"><span>Ford</span></div>
+      <div class="marca-item"><img src="Chevrolet.png" alt="Chevrolet"><span>Chevrolet</span></div>
+      <div class="marca-item"><img src="honda.png" alt="Honda"><span>Honda</span></div>
+      <div class="marca-item"><img src="toyota.png" alt="Toyota"><span>Toyota</span></div>
     </div>
   </section>
 
-  <!-- ===== CATÁLOGO ===== -->
-  <section id="catalogo" style="background:#fff;border-top:1px solid var(--ring);border-bottom:1px solid var(--ring)">
-    <div class="container">
-      <h2>Catálogo de Peças</h2>
-      <p class="muted">Busque por nome da peça, carro ou ano.</p>
-      <div class="search" style="margin:12px 0 18px 0">
-        <input id="busca" type="text" placeholder="Ex.: farol onix 2020" />
-        <button id="btnLimpar" class="btn-ghost">Limpar</button>
-      </div>
-      <div id="gridCatalogo" class="grid grid-3"></div>
-      <div style="text-align:center;margin-top:16px">
-        <a class="btn-ghost" data-whats target="_blank" rel="noopener">Não achou? A gente procura pra você</a>
-      </div>
-    </div>
+  <section class="imagem-abaixo">
+    <img src="portas.png" alt="Portas de automóveis disponíveis">
   </section>
 
-  <!-- ===== CONTATO ===== -->
-  <section id="contato">
-    <div class="container grid grid-2">
-      <div class="card" style="padding:18px">
-        <h2>Fale com a gente</h2>
-        <p class="muted" data-horario>Seg a Sex 8h-18h • Sáb 8h-12h</p>
-        <div style="margin-top:10px;font-size:15px">
-          <p><strong>Endereço:</strong> <span data-endereco>Rua Avenida Ricardo Jaffer, 2433 - Vila Mariana, São Paulo/SP</span></p>
-          <p><strong>E-mail:</strong> <a href="mailto:japonesjaffer@gmail.com" data-email>japonesjaffer@gmail.com</a></p>
-          <p><strong>WhatsApp:</strong> <a data-whats target="_blank" rel="noopener">+55 11 95029-7862</a></p>
-        </div>
-        <form id="formContato" style="margin-top:14px;display:grid;gap:10px">
-          <input name="nome" required placeholder="Seu nome" style="padding:12px;border:1px solid var(--ring);border-radius:12px" />
-          <input type="email" name="email" required placeholder="Seu e-mail" style="padding:12px;border:1px solid var(--ring);border-radius:12px" />
-          <textarea name="mensagem" rows="4" required placeholder="Qual peça você procura?" style="padding:12px;border:1px solid var(--ring);border-radius:12px"></textarea>
-          <button class="btn" type="submit">Enviar pelo WhatsApp</button>
-        </form>
-      </div>
-      <div class="card">
-        <div class="img"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop" alt="Fachada/estoque"/></div>
-        <div class="body">
-          <strong>Como chegar</strong>
-          <p class="muted">Estamos na Vila Mariana (SP). Clique abaixo para abrir no mapa.</p>
-          <a class="btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Rua%20Avenida%20Ricardo%20Jaffer%2C%202433%20-%20Vila%20Mariana%2C%20S%C3%A3o%20Paulo%2FSP">Abrir no Google Maps</a>
-        </div>
-      </div>
-    </div>
+  <section id="politicas">
+    <h2>Política de Privacidade</h2>
+    <p>Valorizamos sua privacidade e garantimos que os dados...</p>
+    <h3>Política de Devolução</h3>
+    <p>Oferecemos garantia para nossas peças...</p>
   </section>
 
-  <!-- ===== RODAPÉ ===== -->
-  <footer>
-    <div class="container" style="padding:26px 0">
-      <div class="grid grid-3" style="align-items:flex-start">
-        <div>
-          <strong data-nome>JP Desmanche</strong>
-          <p class="muted">Auto peças usadas com procedência, garantia e melhor preço.</p>
-        </div>
-        <div>
-          <strong>Atendimento</strong>
-          <p class="muted" data-horario>Seg a Sex 8h-18h • Sáb 8h-12h</p>
-          <p class="muted"><a data-whats target="_blank" rel="noopener">WhatsApp</a> • <a href="mailto:japonesjaffer@gmail.com" data-email>japonesjaffer@gmail.com</a></p>
-        </div>
-        <div>
-          <strong>Endereço</strong>
-          <p class="muted" data-endereco>Rua Avenida Ricardo Jaffer, 2433 - Vila Mariana, São Paulo/SP</p>
-          <p><a href="javascript:void(0)" data-open-priv>Política de Privacidade</a></p>
-        </div>
-      </div>
-      <div style="border-top:1px solid #11182733;margin-top:18px;padding-top:14px;font-size:13px;color:#9ca3af;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-        <span>© <span id="ano"></span> <span data-nome>JP Desmanche</span>. Todos os direitos reservados.</span>
-        <span>Feito com ❤</span>
-      </div>
-    </div>
-  </footer>
+  <section id="contato" style="padding: 40px; background: #f9f9f9; text-align: center;">
+    <h2 style="font-size: 28px; margin-bottom: 20px;">Entre em Contato</h2>
+    <p style="margin-bottom: 20px;">Fale diretamente conosco pelo WhatsApp:</p>
 
-  <dialog id="dlgPriv">
-    <div class="modal-head">
-      <strong>Política de Privacidade — JP Desmanche</strong>
-      <button id="closePriv" class="close" aria-label="Fechar">✕</button>
-    </div>
-    <div class="modal-body">
-      <p>Levamos sua privacidade a sério. Esta política descreve como coletamos, usamos e protegemos seus dados.</p>
-      <h3>1. Informações coletadas</h3>
-      <ul>
-        <li>Dados fornecidos no formulário (nome, e-mail e mensagem).</li>
-        <li>Dados de contato via WhatsApp (conteúdo da conversa, número, horário).</li>
-      </ul>
-      <h3>2. Uso das informações</h3>
-      <ul>
-        <li>Atender solicitações e orçamentos.</li>
-        <li>Melhorar nosso atendimento e registro de vendas.</li>
-      </ul>
-      <h3>3. Compartilhamento</h3>
-      <p>Não compartilhamos dados com terceiros, exceto quando exigido por lei ou para cumprir obrigações fiscais (ex.: emissão de NF).</p>
-      <h3>4. Segurança</h3>
-      <p>Adotamos medidas técnicas e administrativas para proteger seus dados. No entanto, nenhum método é 100% seguro.</p>
-      <h3>5. Seus direitos</h3>
-      <p>Você pode solicitar acesso, correção ou exclusão dos seus dados pelo e-mail <a href="mailto:japonesjaffer@gmail.com">japonesjaffer@gmail.com</a>.</p>
-      <h3>6. Cookies</h3>
-      <p>Este site não utiliza cookies de terceiros. Podemos usar cookies estritamente necessários para funcionalidade básica.</p>
-      <h3>7. Contato</h3>
-      <p>Dúvidas? Fale com a gente: <a href="mailto:japonesjaffer@gmail.com">japonesjaffer@gmail.com</a>.</p>
-    </div>
-  </dialog>
+    <a href="https://wa.me/5511950297862" target="_blank" style="display: inline-flex; align-items: center; background: #25D366; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: bold;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 10px;">
+      Falar no WhatsApp
+    </a>
 
-  <script>
-    document.getElementById('ano').textContent = new Date().getFullYear();
-  </script>
+    <hr style="margin: 40px 0;">
+
+    <form action="https://formsubmit.co/alunospilotos@gmail.com" method="POST" style="max-width: 500px; margin: auto; text-align: left; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <label for="nome" style="display: block; margin-bottom: 5px; font-weight: bold;">Nome:</label>
+      <input type="text" id="nome" name="nome" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+
+      <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">E-mail:</label>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+
+      <label for="mensagem" style="display: block; margin-bottom: 5px; font-weight: bold;">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+
+      <button type="submit" style="width: 100%; background: #007BFF; color: white; padding: 12px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+        Enviar Mensagem
+      </button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2019 Desmanche Japonês - Av. Ricardo Jaffer, 2433 - Vila Mariana | WhatsApp: (11) 95029-7862
+</footer>
+
+<a href="https://wa.me/5511950297862" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
 </body>
-</html>
-
-
-			    
+</html>  
