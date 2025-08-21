@@ -131,7 +131,30 @@
        style="color:#00ccff; text-decoration:none; margin:0 10px; font-weight:bold; transition:0.3s;">
        Política de Privacidade
     </a>
-    |
+    |<!-- Botão flutuante WhatsApp com rastreamento -->
+<a href="https://wa.me/5511950297862?text=Olá,%20tenho%20interesse%20nas%20peças!" 
+   class="whatsapp-btn"
+   onclick="return gtag_report_conversion('https://wa.me/5511950297862?text=Olá,%20tenho%20interesse%20nas%20peças!');">
+   <img src="zap.png" alt="WhatsApp">
+</a>
+
+<!-- Função de rastreamento do Google Ads -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17480742566/gyyvCLvCvoYbEKbtu49B',
+      'value': 1.0,
+      'currency': 'BRL',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
     <a href="calculadora.html" target="_blank" 
        style="color:#00ccff; text-decoration:none; margin:0 10px; font-weight:bold; transition:0.3s;">
        Calculadora de Frete
@@ -139,12 +162,7 @@
   </nav>
 </footer>
 
-<!-- Botão flutuante WhatsApp com rastreamento -->
-<a href="https://wa.me/5511950297862?text=Olá,%20tenho%20interesse%20nas%20peças!" 
-   class="whatsapp-btn"
-   onclick="return gtag_report_conversion('https://wa.me/5511950297862?text=Olá,%20tenho%20interesse%20nas%20peças!');">
-   <img src="zap.png" alt="WhatsApp">
-</a>
+
 
 <!-- Função de rastreamento do Google Ads -->
 <script>
