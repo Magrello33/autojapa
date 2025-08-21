@@ -86,7 +86,15 @@ async function buscarEndereco(cep){
   }
 }
 
-// calcula frete e mostra chave PIX
+// mostrar PIX ao clicar
+function mostrarPIX(){
+    pixPayload = chavePIX;
+    document.getElementById('pixCode').innerText = pixPayload;
+    document.getElementById('pixCodeContainer').style.display="flex";
+    document.getElementById('btnPagarFrete').style.display = "none"; // esconde o botão
+}
+
+// calcula frete e mostra resultado
 async function calcularFrete(){
   const cepOrigem=document.getElementById('cepOrigem').value;
   const cepDestino=document.getElementById('cepDestino').value;
@@ -110,15 +118,15 @@ async function calcularFrete(){
     document.getElementById('loading').style.display='none';
 
     if(!enderecoOrigem || !enderecoDestino){ 
-      alert("CEP de destino inválido!"); 
+      alert("CEP inválido!"); 
       return; 
     }
 
     const valorFrete = tipo==='expresso'?89.90:59.90;
 
     const textoResultado = 
-      `📍 Origem: ${enderecoOrigem.localidade} - ${enderecoOrigem.uf}\n`+
-      `📍 Destino: ${enderecoDestino.localidade} - ${enderecoDestino.uf}\n`+
+      `📍 Origem: ${enderecoOrigem.logradouro}, ${enderecoOrigem.bairro} - ${enderecoOrigem.localidade}/${enderecoOrigem.uf}\n`+
+      `📍 Destino: ${enderecoDestino.logradouro}, ${enderecoDestino.bairro} - ${enderecoDestino.localidade}/${enderecoDestino.uf}\n`+
       `💰 Tipo de Frete: ${tipo.charAt(0).toUpperCase()+tipo.slice(1)}\n`+
       `💵 Valor do Frete: R$ ${valorFrete.toFixed(2)}`;
 
@@ -126,10 +134,18 @@ async function calcularFrete(){
     resultadoDiv.innerText=textoResultado;
     resultadoDiv.classList.add('show');
 
-    // mostra apenas a chave PIX
-    pixPayload = chavePIX;
-    document.getElementById('pixCode').innerText = pixPayload;
-    document.getElementById('pixCodeContainer').style.display="flex";
+    // botão "Pagar Frete"
+    let btnPagar = document.getElementById('btnPagarFrete');
+    if(!btnPagar){
+        btnPagar = document.createElement('button');
+        btnPagar.id = 'btnPagarFrete';
+        btnPagar.innerText = "💳 Pagar Frete";
+        btnPagar.style.marginTop = "10px";
+        btnPagar.onclick = mostrarPIX;
+        document.querySelector('.container').appendChild(btnPagar);
+    }else{
+        btnPagar.style.display = "block";
+    }
 
   },1200);
 }
