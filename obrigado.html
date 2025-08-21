@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Obrigado! | Desmanche Japonês</title>
+<title>Desmanche Japonês | Peças Automotivas</title>
 
 <!-- Tag global do Google Ads -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17480742566"></script>
@@ -15,29 +15,134 @@
 </script>
 
 <style>
-  body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f4f9; color:#333; display:flex; justify-content:center; align-items:center; height:100vh; text-align:center; padding:20px;}
-  .container {background:white; padding:40px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.1);}
-  h1 {color:#004a99; font-size:2.2rem; margin-bottom:20px;}
-  p {font-size:1.1rem; margin-bottom:25px;}
-  a {color:#007BFF; text-decoration:none; font-weight:bold;}
-  a:hover {text-decoration:underline;}
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f4f9; color:#333; line-height:1.6; padding-bottom:70px;}
+  header {background:#004a99; color:white; padding:15px 20px; display:flex; align-items:center; gap:15px; position:sticky; top:0; z-index:1000; box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+  header .logo {height:55px; width:55px;}
+  header h1 {font-size:1.9rem; font-weight:700;}
+  nav {background:#003366;}
+  nav ul {list-style:none; display:flex; justify-content:center;}
+  nav li {margin:0 18px;}
+  nav a {display:block; padding:12px 0; font-weight:600; color:#b3d1ff; text-decoration:none; transition:color 0.3s ease;}
+  nav a:hover {color:#fff;}
+  .banner-fixo img {width:100%; max-height:400px; object-fit:cover;}
+  main {max-width:1100px; margin:auto; padding:0 15px;}
+  section {background:white; padding:30px 25px; margin-bottom:50px; border-radius:12px; box-shadow:0 0 14px rgba(0,0,0,0.1);}
+  section h2 {text-align:center; margin-bottom:25px; color:#004a99; font-size:2rem;}
+  .imagem-abaixo img {width:100%; height:auto; display:block;}
+  .servicos-list {max-width:850px; margin:0 auto; list-style:disc; padding-left:20px;}
+  .marcas-container {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:900px; margin:auto;}
+  .marca-item {flex:0 1 130px; text-align:center; color:#004a99;}
+  .marca-item img {max-width:100px; margin-bottom:8px;}
+  form {max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px;}
+  form input, form textarea {padding:14px; border:1px solid #ccc; border-radius:7px; font-size:1rem;}
+  form button {background:#004a99; color:white; padding:14px; border:none; border-radius:8px; font-size:1.15rem; cursor:pointer;}
+  form button:hover {background:#003366;}
+  footer {background:#003366; color:#b3c7e6; text-align:center; padding:20px;}
+  .whatsapp-btn {position:fixed; bottom:20px; right:20px; background:#25d366; border-radius:50%; width:60px; height:60px; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 8px rgba(0,0,0,0.3); z-index:9999;}
+  .whatsapp-btn img {width:32px; height:32px;}
+  @media (max-width:900px){.marca-item {flex:0 1 45%;}}
+  @media (max-width:480px){nav ul{flex-direction:column; gap:10px; padding:10px 0;} header{flex-direction:column; text-align:center;} header .logo{margin:auto;} .marca-item{flex:0 1 80%;}}
 </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Obrigado pelo seu contato!</h1>
-  <p>Recebemos sua mensagem e entraremos em contato em breve.</p>
-  <p><a href="index.html">Voltar para o site</a></p>
-</div>
+<header>
+  <img class="logo" src="japalogo.png" alt="Logo Desmanche Japonês" />
+  <h1>Desmanche Japonês</h1>
+</header>
 
-<!-- Tag de conversão Google Ads -->
+<section class="banner-fixo">
+  <img src="frentecomrua.png" alt="Fachada do Desmanche Japonês com vista para a rua" />
+</section>
+
+<main>
+  <section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Localizado no coração da Vila Mariana, o <strong>Desmanche Japonês</strong> é referência em peças automotivas de qualidade e procedência garantida. Trabalhamos com uma ampla variedade de peças originais e seminovas, cuidadosamente testadas para oferecer desempenho e segurança.</p>
+    <p>Nossa missão é fornecer soluções rápidas e econômicas para manutenção e reparos de veículos, sempre com atendimento transparente e de confiança. Com anos de experiência no setor, conquistamos a confiança de clientes de toda a região.</p>
+    <p>Seja para encontrar aquela peça rara ou para um atendimento especializado, o Desmanche Japonês está pronto para ajudar você a colocar seu carro de volta na estrada.</p>
+  </section>
+
+  <section class="imagem-abaixo">
+    <img src="campos.png" alt="Imagem do pátio do desmanche">
+  </section>
+
+  <section id="servicos">
+    <h2>Serviços</h2>
+    <ul class="servicos-list">
+      <li>Portas e capôs</li>
+      <li>Sistemas eletrônicos</li>
+      <li>Pneus e rodas</li>
+      <li>Motor e transmissão</li>
+      <li>Suspensão e freios</li>
+      <li>Peças internas e externas</li>
+      <li>Manutenção geral</li>
+    </ul>
+  </section>
+
+  <section id="marcas">
+    <h2>Marcas que Trabalhamos</h2>
+    <div class="marcas-container">
+      <div class="marca-item"><img src="Volks.png" alt="Volkswagen"><span>Volkswagen</span></div>
+      <div class="marca-item"><img src="fiat.png" alt="Fiat"><span>Fiat</span></div>
+      <div class="marca-item"><img src="Ford.png" alt="Ford"><span>Ford</span></div>
+      <div class="marca-item"><img src="Chevrolet.png" alt="Chevrolet"><span>Chevrolet</span></div>
+      <div class="marca-item"><img src="honda.png" alt="Honda"><span>Honda</span></div>
+      <div class="marca-item"><img src="Toyota.png" alt="Toyota"><span>Toyota</span></div>
+    </div>
+  </section>
+
+  <section id="contato" style="padding:40px; background:#f9f9f9; text-align:center;">
+    <h2 style="font-size:28px; margin-bottom:20px;">Entre em Contato</h2>
+    <p style="margin-bottom:20px;">Preencha o formulário abaixo e retornaremos o contato:</p>
+
+    <form action="https://formsubmit.co/desmanchejp@gmail.com" method="POST" style="max-width:500px; margin:auto; text-align:left; background:white; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+      <input type="hidden" name="_next" value="https://jpdesmanche.online/obrigado.html">
+
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" required></textarea>
+
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Japa Desmanches - Todos os direitos reservados.</p>
+  <nav>
+    <a href="politica.html" target="_blank">Política de Privacidade</a> |
+    <a href="calculadora.html" target="_blank">Calculadora de Frete</a>
+  </nav>
+</footer>
+
+<!-- Botão flutuante WhatsApp com rastreamento -->
+<a href="https://wa.me/5511950297862?text=Olá,%20tenho%20interesse%20nas%20peças!" 
+   class="whatsapp-btn"
+   onclick="return gtag_report_conversion('https://wa.me/5511950297862?text=Olá,%20tenho%20interesse%20nas%20peças!');">
+   <img src="zap.png" alt="WhatsApp">
+</a>
+
 <script>
-gtag('event', 'conversion', {
-    'send_to': 'AW-17480742566/12CCmI3g-p4ZEK2YgZs-', // Coloque aqui o ID de conversão do formulário
-    'value': 1.0,
-    'currency': 'BRL'
-});
+// Função de rastreamento para WhatsApp
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') { window.location = url; }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17480742566/gyyvCLvCvoYbEKbtu49B', // ID do clique no WhatsApp
+      'value': 1.0,
+      'currency': 'BRL',
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
 
 </body>
