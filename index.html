@@ -15,8 +15,11 @@
 </script>
 
 <style>
+  /* RESET E BASE */
   * {margin:0; padding:0; box-sizing:border-box;}
   body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f0f4f9; color:#333; line-height:1.6; padding-bottom:70px;}
+
+  /* HEADER E NAV */
   header {background:#004a99; color:white; padding:15px 20px; display:flex; align-items:center; gap:15px; position:sticky; top:0; z-index:1000; box-shadow:0 2px 6px rgba(0,0,0,0.2);}
   header .logo {height:55px; width:55px;}
   header h1 {font-size:1.9rem; font-weight:700;}
@@ -25,24 +28,50 @@
   nav li {margin:0 18px;}
   nav a {display:block; padding:12px 0; font-weight:600; color:#b3d1ff; text-decoration:none; transition:color 0.3s ease;}
   nav a:hover {color:#fff;}
+
+  /* BANNER */
   .banner-fixo img {width:100%; max-height:400px; object-fit:cover;}
+
+  /* MAIN SECTIONS */
   main {max-width:1100px; margin:auto; padding:0 15px;}
   section {background:white; padding:30px 25px; margin-bottom:50px; border-radius:12px; box-shadow:0 0 14px rgba(0,0,0,0.1);}
   section h2 {text-align:center; margin-bottom:25px; color:#004a99; font-size:2rem;}
   .imagem-abaixo img {width:100%; height:auto; display:block;}
   .servicos-list {max-width:850px; margin:0 auto; list-style:disc; padding-left:20px;}
-  .marcas-container {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:900px; margin:auto;}
-  .marca-item {flex:0 1 130px; text-align:center; color:#004a99;}
-  .marca-item img {max-width:100px; margin-bottom:8px;}
-  form {max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px;}
+
+  /* LOGOS E MARCAS */
+  .logos-grid, .marcas-container {display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:20px;}
+  .logo-card, .marca-item {flex:0 1 150px; display:flex; justify-content:center; align-items:center; padding:10px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+  .logo-card img {max-width:100%; max-height:80px; object-fit:contain;}
+  .marca-item img {max-width:100px; height:auto;}
+
+  /* FORMULÁRIO */
+  form {max-width:600px; margin:auto; display:flex; flex-direction:column; gap:15px; background:white; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   form input, form textarea {padding:14px; border:1px solid #ccc; border-radius:7px; font-size:1rem;}
   form button {background:#004a99; color:white; padding:14px; border:none; border-radius:8px; font-size:1.15rem; cursor:pointer;}
   form button:hover {background:#003366;}
+
+  /* CERTIFICADO */
+  .certificado {text-align:center; margin:30px 0;}
+  .certificado img {max-width:55px; width:100%; height:auto; display:block; margin:auto;}
+
+  /* FOOTER */
   footer {background:#003366; color:#b3c7e6; text-align:center; padding:20px;}
+  footer nav a {color:#b3c7e6; text-decoration:none; margin:0 5px;}
+  footer nav a:hover {text-decoration:underline;}
+
+  /* WHATSAPP FLUTUANTE */
   .whatsapp-btn {position:fixed; bottom:20px; right:20px; background:#25d366; border-radius:50%; width:60px; height:60px; display:flex; justify-content:center; align-items:center; box-shadow:0 4px 8px rgba(0,0,0,0.3); z-index:9999;}
   .whatsapp-btn img {width:32px; height:32px;}
+
+  /* RESPONSIVIDADE */
   @media (max-width:900px){.marca-item {flex:0 1 45%;}}
-  @media (max-width:480px){nav ul{flex-direction:column; gap:10px; padding:10px 0;} header{flex-direction:column; text-align:center;} header .logo{margin:auto;} .marca-item{flex:0 1 80%;}}
+  @media (max-width:480px){
+    nav ul{flex-direction:column; gap:10px; padding:10px 0;}
+    header{flex-direction:column; text-align:center;}
+    header .logo{margin:auto;}
+    .marca-item{flex:0 1 80%;}
+  }
 </style>
 </head>
 <body>
@@ -63,27 +92,17 @@
     <p>Nossa missão é fornecer soluções rápidas e econômicas para manutenção e reparos de veículos, sempre com atendimento transparente e de confiança. Com anos de experiência no setor, conquistamos a confiança de clientes de toda a região.</p>
     <p>Seja para encontrar aquela peça rara ou para um atendimento especializado, o Desmanche Japonês está pronto para ajudar você a colocar seu carro de volta na estrada.</p>
   </section>
+
   <section class="leiloes-section">
-  <h2>🚗 Parceiros de Confiança</h2>
-  <p>Nossas peças vêm de veículos <strong>100% legalizados</strong>, adquiridos nos leilões mais confiáveis do Brasil. Trabalhamos apenas com procedência para garantir qualidade e segurança.</p>
-  
-  <div class="logos-grid" style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:20px;">
-    <div class="logo-card" style="flex:0 1 150px; display:flex; justify-content:center; align-items:center; padding:10px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-      <img src="copart.png" alt="Copart Leilões" style="max-width:100%; max-height:80px; object-fit:contain;">
+    <h2>🚗 Parceiros de Confiança</h2>
+    <p>Nossas peças vêm de veículos <strong>100% legalizados</strong>, adquiridos nos leilões mais confiáveis do Brasil. Trabalhamos apenas com procedência para garantir qualidade e segurança.</p>
+    <div class="logos-grid">
+      <div class="logo-card"><img src="copart.png" alt="Copart Leilões"></div>
+      <div class="logo-card"><img src="freitas.png" alt="Freitas Leilões"></div>
+      <div class="logo-card"><img src="sato.png" alt="Sato Leilões"></div>
+      <div class="logo-card"><img src="vip.png" alt="VIP Leilões"></div>
+      <div class="logo-card"><img src="sodre.png" alt="Sodré Santoro"></div>
     </div>
-    <div class="logo-card" style="flex:0 1 150px; display:flex; justify-content:center; align-items:center; padding:10px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-      <img src="freitas.png" alt="Freitas Leilões" style="max-width:100%; max-height:80px; object-fit:contain;">
-    </div>
-    <div class="logo-card" style="flex:0 1 150px; display:flex; justify-content:center; align-items:center; padding:10px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-      <img src="sato.png" alt="Sato Leilões" style="max-width:100%; max-height:80px; object-fit:contain;">
-    </div>
-    <div class="logo-card" style="flex:0 1 150px; display:flex; justify-content:center; align-items:center; padding:10px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-      <img src="vip.png" alt="VIP Leilões" style="max-width:100%; max-height:80px; object-fit:contain;">
-    </div>
-    <div class="logo-card" style="flex:0 1 150px; display:flex; justify-content:center; align-items:center; padding:10px; background:white; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-      <img src="sodre.png" alt="Sodré Santoro" style="max-width:100%; max-height:80px; object-fit:contain;">
-    </div>
-  </div>
   </section>
 
   <section class="imagem-abaixo">
@@ -104,53 +123,37 @@
   </section>
 
   <section id="marcas">
-  <h2>Marcas que Trabalhamos</h2>
-  <div class="marcas-container" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:20px;">
-    <div class="marca-item" style="flex:0 1 130px; display:flex; justify-content:center; align-items:center;">
-      <img src="Volks.png" alt="Volkswagen" style="max-width:100px; height:auto;">
+    <h2>Marcas que Trabalhamos</h2>
+    <div class="marcas-container">
+      <div class="marca-item"><img src="Volks.png" alt="Volkswagen"></div>
+      <div class="marca-item"><img src="fiat.png" alt="Fiat"></div>
+      <div class="marca-item"><img src="Ford.png" alt="Ford"></div>
+      <div class="marca-item"><img src="Chevrolet.png" alt="Chevrolet"></div>
+      <div class="marca-item"><img src="honda.png" alt="Honda"></div>
+      <div class="marca-item"><img src="Toyota.png" alt="Toyota"></div>
     </div>
-    <div class="marca-item" style="flex:0 1 130px; display:flex; justify-content:center; align-items:center;">
-      <img src="fiat.png" alt="Fiat" style="max-width:100px; height:auto;">
-    </div>
-    <div class="marca-item" style="flex:0 1 130px; display:flex; justify-content:center; align-items:center;">
-      <img src="Ford.png" alt="Ford" style="max-width:100px; height:auto;">
-    </div>
-    <div class="marca-item" style="flex:0 1 130px; display:flex; justify-content:center; align-items:center;">
-      <img src="Chevrolet.png" alt="Chevrolet" style="max-width:100px; height:auto;">
-    </div>
-    <div class="marca-item" style="flex:0 1 130px; display:flex; justify-content:center; align-items:center;">
-      <img src="honda.png" alt="Honda" style="max-width:100px; height:auto;">
-    </div>
-    <div class="marca-item" style="flex:0 1 130px; display:flex; justify-content:center; align-items:center;">
-      <img src="Toyota.png" alt="Toyota" style="max-width:100px; height:auto;">
-    </div>
-  </div>
-</section>
+  </section>
 
   <section id="contato" style="padding:40px; background:#f9f9f9; text-align:center;">
     <h2 style="font-size:28px; margin-bottom:20px;">Entre em Contato</h2>
     <p style="margin-bottom:20px;">Preencha o formulário abaixo e retornaremos o contato:</p>
-
-    <form action="https://formsubmit.co/desmanchejp@gmail.com" method="POST" style="max-width:500px; margin:auto; text-align:left; background:white; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+    <form action="https://formsubmit.co/desmanchejp@gmail.com" method="POST">
       <input type="hidden" name="_next" value="https://jpdesmanche.online/obrigado.html">
-
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required>
-
       <label for="email">E-mail:</label>
       <input type="email" id="email" name="email" required>
-
       <label for="mensagem">Mensagem:</label>
       <textarea id="mensagem" name="mensagem" required></textarea>
-
       <button type="submit">Enviar Mensagem</button>
     </form>
   </section>
-    <section class="certificado" style="text-align:center; margin:30px 0;">
-  <img src="legal.png" alt="Certificado de Desmanche Autorizado" style="max-width:55px; width:100%; height:auto; display:block; margin:auto;">
-  <h3>Desmanche Autorizado e Legalizado</h3>
-  <p>Nosso desmanche é certificado pelos órgãos competentes, garantindo que todas as peças comercializadas são 100% legais e seguras.</p>
-</section>
+
+  <section class="certificado">
+    <img src="legal.png" alt="Certificado de Desmanche Autorizado">
+    <h3>Desmanche Autorizado e Legalizado</h3>
+    <p>Nosso desmanche é certificado pelos órgãos competentes, garantindo que todas as peças comercializadas são 100% legais e seguras.</p>
+  </section>
 </main>
 
 <footer>
@@ -161,7 +164,7 @@
   </nav>
 </footer>
 
-<!-- Botão flutuante WhatsApp com rastreamento -->
+<!-- Botão flutuante WhatsApp -->
 <a href="https://wa.me/5511950297862?text=Olá,%20tenho%20interesse%20nas%20peças!" 
    class="whatsapp-btn"
    onclick="return gtag_report_conversion('https://wa.me/5511950297862?text=Olá,%20tenho%20interesse%20nas%20peças!');">
@@ -169,13 +172,12 @@
 </a>
 
 <script>
-// Função de rastreamento para WhatsApp
 function gtag_report_conversion(url) {
   var callback = function () {
     if (typeof(url) != 'undefined') { window.location = url; }
   };
   gtag('event', 'conversion', {
-      'send_to': 'AW-17480742566/gyyvCLvCvoYbEKbtu49B', // ID do clique no WhatsApp
+      'send_to': 'AW-17480742566/gyyvCLvCvoYbEKbtu49B',
       'value': 1.0,
       'currency': 'BRL',
       'event_callback': callback
